@@ -14,7 +14,7 @@ app.get('/apps', (req, res) => {
   const {search = '', sort, genres } = req.query;
 
   if (sort, genres) {
-    if (!['title', 'genre'].includes(sort)) {
+    if (!['app', 'genre'].includes(sort)) {
       return res.status(400).send('Sort must be one of title or genre');
     }
   }
@@ -31,7 +31,4 @@ app.get('/apps', (req, res) => {
   res.json(results);
 });
 
-
-app.listen(8000, () => {
-  console.log('Server is listening on PORT 8000');
-});
+module.exports = app;
